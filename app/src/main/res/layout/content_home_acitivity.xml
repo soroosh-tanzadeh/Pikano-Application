@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ternobo.pikano.HomeAcitivity"
+    tools:context="com.ternobo.pikano.activities.HomeAcitivity"
     tools:showIn="@layout/app_bar_home_acitivity">
 
     <android.support.design.widget.BottomNavigationView
@@ -21,15 +21,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottomnav" />
+        app:menu="@menu/bottomnav"
+        app:labelVisibilityMode="labeled"
+        app:elevation="10dp"/>
 
     <FrameLayout
+        android:id="@+id/fragcontent"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </FrameLayout>
+        app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

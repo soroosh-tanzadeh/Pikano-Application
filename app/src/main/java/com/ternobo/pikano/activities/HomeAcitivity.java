@@ -1,18 +1,21 @@
-package com.ternobo.pikano;
+package com.ternobo.pikano.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+
+import com.ternobo.pikano.R;
+import com.ternobo.pikano.fragments.BookmarkFragment;
+import com.ternobo.pikano.fragments.HomeFragment;
 
 public class HomeAcitivity extends BaseAcitivty
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +34,35 @@ public class HomeAcitivity extends BaseAcitivty
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        BottomNavigationView bnav = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+                = new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                HomeFragment homeFragment = new HomeFragment();
+                BookmarkFragment bookmarkFragment = new BookmarkFragment();
+                switch (item.getItemId()) {
+                    case R.id.bnav_books:
+                        openFragment(homeFragment);
+                        break;
+                    case R.id.bnav_bookmarks:
+                        openFragment(bookmarkFragment);
+                        break;
+                }
+                return true;
+            }
+        };
+        bnav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        bnav.setSelectedItemId(R.id.bnav_books);
+    }
+
+
+    public void openFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragcontent, fragment);
+        transaction.addToBackStack(null);
+            transaction.commit();
     }
 
     @Override
@@ -49,17 +81,13 @@ public class HomeAcitivity extends BaseAcitivty
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.nav_user_profile) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_faq) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_laws) {
 
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_about_dev) {
 
         }
 

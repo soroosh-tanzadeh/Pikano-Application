@@ -1,12 +1,9 @@
-package com.ternobo.pikano;
+package com.ternobo.pikano.activities;
 
 import android.annotation.TargetApi;
 import android.os.Build;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 public class BaseAcitivty extends AppCompatActivity {
 

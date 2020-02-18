@@ -1,5 +1,7 @@
 package com.ternobo.pikano.database;
 
+import com.ternobo.pikano.RESTobjects.User;
+
 import java.io.Serializable;
 
 public class MainDB implements Serializable {
@@ -13,4 +15,5 @@ public class MainDB implements Serializable {
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
+
 }

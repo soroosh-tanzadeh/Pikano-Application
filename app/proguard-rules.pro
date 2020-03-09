@@ -31,3 +31,19 @@
 
 # OkHttp platform used only on JVM and when Conscrypt dependency is available.
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
+
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keep class android.support.v8.renderscript.** { *; }
+
+-dontwarn carbon.BR
+-dontwarn carbon.internal**
+-dontwarn java.lang.invoke**
+
+-dontwarn android.databinding.**
+-keep class android.databinding.** { *; }
+
+-keep class com.shockwave.**

@@ -3,20 +3,34 @@ package com.ternobo.pikano.activities;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.ternobo.pikano.database.ResponseProgress;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BaseAcitivty extends AppCompatActivity {
 
     public static BaseAcitivty current;
+    protected Map<String, ResponseProgress> downloads = new HashMap<>();
+    private ArrayList<BaseAcitivty> acitivties = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         forceRTLIfSupported();
+        acitivties.add(this);
         BaseAcitivty.current = this;
+
     }
+
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     protected void forceRTLIfSupported(){
@@ -24,4 +38,18 @@ public class BaseAcitivty extends AppCompatActivity {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    public void finishAll() {
+        for (BaseAcitivty acitivty : acitivties) {
+            acitivty.finish();
+        }
+        acitivties = new ArrayList<>();
+    }
+
 }

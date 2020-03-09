@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.ternobo.pikano.activities.AuthActivity"
+    tools:showIn="@layout/app_bar_auth">
+
+    <FrameLayout
+        android:id="@+id/authframe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
+
+    </FrameLayout>
+
+</ScrollView>

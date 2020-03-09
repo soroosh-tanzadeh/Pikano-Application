@@ -20,5 +20,10 @@
 
     <string name="enterphone">شماره موبایل خود را وارد کنید</string>
 
+    <string name="menu_home">خانه</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
